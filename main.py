@@ -1,13 +1,14 @@
 from flask import Flask, request
 from flask_cors import CORS
+import pusher
+
 app = Flask(__name__)
 CORS(app)
 
-
 @app.route("/", methods=["POST"])
 def hola_mundo():
-    import pusher
     data = request.get_json()
+
 
     pusher_client = pusher.Pusher(
         app_id = "2062326",
